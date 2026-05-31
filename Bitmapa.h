@@ -5,6 +5,7 @@
 #ifndef CPP_MORPHOLOGICAL_OPERATIONS_BITMAPA_H
 #define CPP_MORPHOLOGICAL_OPERATIONS_BITMAPA_H
 
+#include <ostream>
 
 class Bitmapa
 {
@@ -16,6 +17,7 @@ public:
     virtual ~Bitmapa() {}
 };
 
+std::ostream& operator<<(std::ostream& os, const Bitmapa& b);
 
 
 #endif //CPP_MORPHOLOGICAL_OPERATIONS_BITMAPA_H
