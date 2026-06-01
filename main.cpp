@@ -24,16 +24,22 @@ int main() {
     Dylatacja d;
     Inwersja i;
     Erozja e;
-    //Zerowanie zer;
+    Zerowanie zer;
 
     // stworzenie zlozenia, podajac std::vector jako kontener na wskazniki na filtry
     ZlozeniePrzeksztalcen<std::vector<Przeksztalcenie*>> z;
 
-    // dodanie przeksztalcen do kolejki
-    z.dodajPrzeksztalcenie(&u);
-    z.dodajPrzeksztalcenie(&d);
-    z.dodajPrzeksztalcenie(&i);
-    z.dodajPrzeksztalcenie(&e);
+
+    try {
+        // dodanie przeksztalcen do kolejki
+        z.dodajPrzeksztalcenie(&u);
+        z.dodajPrzeksztalcenie(&d);
+        z.dodajPrzeksztalcenie(&i);
+        z.dodajPrzeksztalcenie(&e);
+    }
+    catch (std::exception& error) {
+        std::cerr<< error.what() <<std::endl;
+    }
 
     // wywolanie przekształceń zgodnie z kolejką
     z.przeksztalc(aa);
@@ -41,7 +47,7 @@ int main() {
     std::cout << aa << "\n";
 
 
-    //z.dodajPrzeksztalcenie(&z);
+    z.dodajPrzeksztalcenie(&zer);
 
     z.przeksztalc(aa);
 

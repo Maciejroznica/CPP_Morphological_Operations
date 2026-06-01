@@ -21,6 +21,10 @@ class ZlozeniePrzeksztalcen : public Przeksztalcenie {
             // rzucenie wyjątku, koniec dzialania funkcji
             throw MyExceptions("Błąd: wykryto pusty wskaźnik");
         }
+        // zabezpieczenie przed dodaniem obiektu do samego siebie
+        if (p == this) {
+            throw MyExceptions("Błąd: próba dodania złożenia do samego siebie");
+        }
         // dodanie przekształcenia do kolejki
         filtry.push_back(p);
     };

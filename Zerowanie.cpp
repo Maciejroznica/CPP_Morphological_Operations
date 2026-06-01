@@ -1,6 +1,6 @@
 #include "Zerowanie.h"
 
-inline void Zerowanie::przeksztalc(Bitmapa& b)
+void Zerowanie::przeksztalc(Bitmapa& b)
 {
 	// Zerowanie bitmapy
 	for (unsigned int y=0;y<b.width();y++)
