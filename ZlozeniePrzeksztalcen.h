@@ -8,7 +8,8 @@
 #include "Przeksztalcenie.h"
 
 // Przez użycie szablonu klasy można wybrać rodzaj kontenera przechowującego kolejność filtrów wywołanych na bitmapie
-template <typename T>
+// domylsnie std::vector<Przeksztalcenie*>
+template <typename T = std::vector<Przeksztalcenie*>>
 class ZlozeniePrzeksztalcen : public Przeksztalcenie {
 
     public:
@@ -38,6 +39,7 @@ class ZlozeniePrzeksztalcen : public Przeksztalcenie {
             i->przeksztalc(b);
         }
     }
+
     private:
     // tablica przechowująca filtry do wywołania na bitmapie
     T filtry;

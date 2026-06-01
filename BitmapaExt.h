@@ -7,14 +7,21 @@
 #include <deque>
 
 #include "Bitmapa.h"
-
+#include "MyExceptions.h"
 
 
 class BitmapaExt : public Bitmapa {
     public:
-        // lista inicjalizacyjna konstruktora tworzy dwuwymiarową tablicę
-        // wszystkie elemnty są domyślnie ustawione na false
-        BitmapaExt(unsigned int length, unsigned int width) : pixels(length,std::deque<bool>(width,false)) {};
+
+        BitmapaExt(unsigned int length, unsigned int width) {
+            // sprawdzenie poprawnosci wymiarow przed utworzeniem konetenera
+            if (length == 0 || width == 0) {
+                throw MyExceptions("Błąd: Wymiary bitmapy muszą być większe niż 0");
+            }
+
+            // ustawienie struktury z pola pixels na odpowiednią długość i wypełnienie jej tablicami o typie bool o długościach width, z każdą domyślną wartością false
+            pixels.assign(length,std::deque<bool>(width,false));
+        };
 
         /* Metoda przeladowuje operator () w celu otrzymania dostepu do elementu w 2-wymiarowej tablicy pixels
          * @return referencja do elementu na danej pozycji

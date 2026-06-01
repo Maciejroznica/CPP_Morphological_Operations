@@ -1,20 +1,27 @@
 #include "Usrednianie.h"
 #include <vector>
 
+#include "MyExceptions.h"
+
 void Usrednianie::przeksztalc(Bitmapa& b)
 {
+    // sprawdzenie poprawnosci wymiarow przed utworzeniem konetenera
+    if (b.length() == 0 || b.width() == 0) {
+        throw MyExceptions("Błąd: Wymiary bitmapy muszą być większe niż 0");
+    }
+
 	// Tworzymy kopie obecnego stanu bitmapy
 	std::vector<std::vector<bool>> kopia(b.width(), std::vector<bool>(b.length()));
-	for (unsigned int y = 0;y < b.width();y++)
+	for (unsigned int y = 0;y < b.length();y++)
 	{
-		for (unsigned int x = 0;x < b.length();x++)
+		for (unsigned int x = 0;x < b.width();x++)
 		{
 			kopia[y][x] = b(x, y);
 		}
 	}
 
-    for (unsigned int y = 0; y < b.width(); ++y) {
-        for (unsigned int x = 0; x < b.length(); ++x) {
+    for (unsigned int y = 0; y < b.length(); ++y) {
+        for (unsigned int x = 0; x < b.width(); ++x) {
 
                 int czarne = 0;
                 int biale = 0;

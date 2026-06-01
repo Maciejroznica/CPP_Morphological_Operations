@@ -22,7 +22,7 @@ std::ostream& operator<<(std::ostream& os, const Bitmapa& b)
 			}
 
 			// Spacja między cyframi
-			if (x<b.length()-1)
+			if (x<b.width()-1)
 			{
 				os << " ";
 			}

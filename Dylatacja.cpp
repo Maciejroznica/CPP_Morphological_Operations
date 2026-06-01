@@ -1,8 +1,15 @@
 #include "Dylatacja.h"
 #include <vector>
 
+#include "MyExceptions.h"
+
 void Dylatacja::przeksztalc(Bitmapa& b)
 {
+	// sprawdzenie poprawnosci wymiarow przed utworzeniem konetenera
+	if (b.length() == 0 || b.width() == 0) {
+		throw MyExceptions("Błąd: Wymiary bitmapy muszą być większe niż 0");
+	}
+
 	// Tworzymy kopie obecnego stanu bitmapy
 	std::vector<std::vector<bool>> kopia(b.width(), std::vector<bool>(b.length()));
 	for (unsigned int y = 0;y < b.width();y++)
