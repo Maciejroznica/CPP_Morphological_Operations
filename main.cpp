@@ -11,12 +11,16 @@
 int main() {
     try {
         // utworzenie bitmapy 5x5
-        BitmapaExt aa(5,5);
+        BitmapaExt aa(7,7);
 
 
         try {
             // wprowadzenie wzoru z przykladu
-            aa(1, 1) = aa(2, 1) = aa(3, 1) = aa(2, 2) = aa(1, 3) = aa(2,3) = aa(3, 3) = true;
+            aa(3, 1) = true;
+            aa(2, 2) = aa(3, 2) = aa(4, 2) = true;
+            aa(1, 3) = aa(2, 3) = aa(3, 3) = aa(4, 3) = aa(5, 3) = true;
+            aa(2, 4) = aa(3, 4) = aa(4, 4) = true;
+            aa(3, 5) = true;
         }
         catch (std::exception& error) {
             std::cerr<< error.what() << "\n";
