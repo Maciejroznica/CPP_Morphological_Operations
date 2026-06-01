@@ -7,13 +7,13 @@
 std::ostream& operator<<(std::ostream& os, const Bitmapa& b)
 {
 	// Wysokość (oś Y)
-	for (unsigned int y = 0;y<b.width();y++)
+	for (unsigned int y = 0;y<b.length();y++)
 	{
 		// Szerokość (oś X)
-		for (unsigned int x = 0;x < b.length();x++)
+		for (unsigned int x = 0;x < b.width();x++)
 		{
 			// Pobieramy wartość piksela.
-			if (b(x,y))
+			if (b(y,x))
 			{
 				os << "1";
 			}else
