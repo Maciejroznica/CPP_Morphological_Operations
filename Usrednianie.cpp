@@ -16,7 +16,6 @@ void Usrednianie::przeksztalc(Bitmapa& b)
     for (unsigned int y = 0; y < b.width(); ++y) {
         for (unsigned int x = 0; x < b.length(); ++x) {
 
-            if (kopia[y][x] == false) { // Jeśli jest biały
                 int czarne = 0;
                 int biale = 0;
 
@@ -67,7 +66,7 @@ void Usrednianie::przeksztalc(Bitmapa& b)
                 else if (biale > 2) {
                     b(x, y) = false;
                 }
-            }
+
         }
     }
 }
