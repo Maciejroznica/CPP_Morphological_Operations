@@ -15,9 +15,11 @@ std::ostream& operator<<(std::ostream& os, const Bitmapa& b)
 			// Pobieramy wartość piksela.
 			if (b(y,x))
 			{
+				// Jeśli piksel to 'true' (kolor czarny), wypisujemy cyfrę 1
 				os << "1";
 			}else
 			{
+				// Jeśli piksel to 'false' (kolor biały), wypisujemy cyfrę 0
 				os << "0";
 			}
 

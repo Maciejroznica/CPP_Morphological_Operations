@@ -17,6 +17,7 @@ public:
     virtual ~Bitmapa() {}
 };
 
+// Przeciążenie operatora << do wypisywania bitmapy w konsoli
 std::ostream& operator<<(std::ostream& os, const Bitmapa& b);
 
 

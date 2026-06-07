@@ -11,16 +11,12 @@
 int main() {
     try {
         // utworzenie bitmapy 5x5
-        BitmapaExt aa(7,7);
+        BitmapaExt aa(5, 5);
 
 
         try {
             // wprowadzenie wzoru z przykladu
-            aa(3, 1) = true;
-            aa(2, 2) = aa(3, 2) = aa(4, 2) = true;
-            aa(1, 3) = aa(2, 3) = aa(3, 3) = aa(4, 3) = aa(5, 3) = true;
-            aa(2, 4) = aa(3, 4) = aa(4, 4) = true;
-            aa(3, 5) = true;
+            aa(1, 1) = aa(2, 1) = aa(3, 1) = aa(2, 2) = aa(1, 3) = aa(2, 3) = aa(3, 3) = true;
         }
         catch (std::exception& error) {
             std::cerr<< error.what() << "\n";
@@ -33,9 +29,7 @@ int main() {
         // tworzenie filtrow
         Usrednianie u;
         Dylatacja d;
-        Inwersja i;
-        Erozja e;
-        Zerowanie zer;
+
 
         // stworzenie zlozenia, podajac std::vector jako kontener na wskazniki na filtry
         ZlozeniePrzeksztalcen<std::vector<Przeksztalcenie*>> z;
@@ -45,8 +39,6 @@ int main() {
             // dodanie przeksztalcen do kolejki
             z.dodajPrzeksztalcenie(&u);
             z.dodajPrzeksztalcenie(&d);
-            z.dodajPrzeksztalcenie(&i);
-            z.dodajPrzeksztalcenie(&e);
         }
         catch (std::exception& error) {
             std::cerr<< error.what() <<"\n";
@@ -63,12 +55,6 @@ int main() {
 
         std::cout << aa << "\n";
 
-
-        z.dodajPrzeksztalcenie(&zer);
-
-        z.przeksztalc(aa);
-
-        std::cout << aa << "\n";
     }
     catch (std::exception& error) {
         std::cerr << error.what();
